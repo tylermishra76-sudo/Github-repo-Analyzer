@@ -81,7 +81,7 @@ function stopLoadingSteps() {
 // Main analyze function
 async function analyzeRepo() {
   const url = $('repo-input').value.trim();
-  const token = $('token-input').value.trim();
+  const token = $('token-input').value.trim() || null;
 
   if (!url) {
     showError('Please paste a GitHub repository URL.');
