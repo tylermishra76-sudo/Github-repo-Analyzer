@@ -62,8 +62,11 @@ function getActivityLevel(commits, updatedAt) {
 async function githubFetch(url, token) {
   const headers = { 'Accept': 'application/vnd.github.v3+json', 'User-Agent': 'github-analyzer' };
   if (token) headers['Authorization'] = `token ${token}`;
-  const res = await fetch(url, { headers: Authorization: `token ${process.env.GITHUB_TOKEN}`});
-  if (res.status === 404) throw new Error('Repository not found');
+const res = await fetch(url, {
+  headers: {
+    Authorization: `token ${process.env.GITHUB_TOKEN}`
+  }
+});  if (res.status === 404) throw new Error('Repository not found');
   if (res.status === 403) throw new Error('API rate limit exceeded. Try again later.');
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
   return res.json();
