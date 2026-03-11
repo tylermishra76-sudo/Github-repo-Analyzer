@@ -191,8 +191,8 @@ function renderResults(d) {
         <div class="card-label"><span class="card-label-dot"></span>Repository Overview</div>
         <div class="stat-grid">
           <div class="stat-item">
-            <div class="stat-value stat-accent">★ ${formatNumber(d.stars)}</div>
-            <div class="stat-label">Stars</div>
+            <div class="stat-value diff-${getDifficultyClass(d.difficulty)}">${d.difficulty}<span style="font-size:16px;color:var(--text-muted);font-weight:500">/10</span></div>
+           <div class="stat-label">Difficulty</div>
           </div>
           <div class="stat-item">
             <div class="stat-value">${formatNumber(d.forks)}</div>
